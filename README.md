@@ -116,22 +116,6 @@ Total: **1,200 images** | Split: **70/15/15** train/val/test
 
 ---
 
-## 🔮 Future Scope
-
-- [ ] YOLOv8 object detection for defect localisation
-- [ ] TFLite conversion for Raspberry Pi edge deployment
-- [ ] Grad-CAM explainability visualisation
-- [ ] MLflow experiment tracking
-- [ ] MQTT integration with PLC rejection system
-
----
-
-## 👤 Author
-
-**Sai Veekshith** | B.Tech CSE | GITAM University  
-Student ID: 2023003590 | Supervisor: Dr. Bhasker Burra
-
----
 
 ## 📄 License
 
