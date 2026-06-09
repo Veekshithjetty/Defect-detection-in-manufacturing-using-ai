@@ -143,7 +143,7 @@ def batch_infer_folder(model, folder_path, output_csv="batch_results.csv",
                    if f.lower().endswith(valid_exts)]
 
     if not image_files:
-        print(f"❌ No images found in: {folder_path}")
+        print(f" No images found in: {folder_path}")
         return pd.DataFrame()
 
     print(f"🔍 Running batch inference on {len(image_files)} images...")
