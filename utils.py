@@ -111,12 +111,12 @@ def visualise_gradcam(model, image_path, last_conv_layer_name="Conv_1",
     )
     axes[2].axis("off")
 
-    plt.suptitle("🔬 Grad-CAM Explainability", fontsize=14, fontweight="bold")
+    plt.suptitle(" Grad-CAM Explainability", fontsize=14, fontweight="bold")
     plt.tight_layout()
 
     if save_path:
         plt.savefig(save_path, bbox_inches="tight", dpi=150)
-        print(f"✅ Grad-CAM saved: {save_path}")
+        print(f" Grad-CAM saved: {save_path}")
     plt.show()
 
     return {"class": pred_cls, "confidence": conf, "heatmap": heatmap}
@@ -176,7 +176,7 @@ def batch_infer_folder(model, folder_path, output_csv="batch_results.csv",
 
     df = pd.DataFrame(records)
     df.to_csv(output_csv, index=False)
-    print(f"✅ Batch inference complete. Results saved: {output_csv}")
+    print(f" Batch inference complete. Results saved: {output_csv}")
     print(f"\n{df[['filename','predicted_class','confidence_pct','severity']].to_string(index=False)}")
     return df
 
@@ -195,7 +195,7 @@ def export_tflite(model, output_path="defect_model.tflite", quantize=True):
 
     if quantize:
         converter.optimizations = [tf.lite.Optimize.DEFAULT]
-        print("⚙️  Applying dynamic range quantisation...")
+        print("  Applying dynamic range quantisation...")
 
     tflite_model = converter.convert()
 
@@ -203,7 +203,7 @@ def export_tflite(model, output_path="defect_model.tflite", quantize=True):
         f.write(tflite_model)
 
     size_mb = os.path.getsize(output_path) / (1024 * 1024)
-    print(f"✅ TFLite model saved: {output_path}")
+    print(f" TFLite model saved: {output_path}")
     print(f"   File size: {size_mb:.2f} MB")
     return output_path
 
@@ -277,7 +277,7 @@ def benchmark_model(model, n_runs=100, img_size=IMG_SIZE):
         "max_ms"  : round(np.max(times), 2),
         "fps"     : round(1000 / avg, 1)
     }
-    print(f"\n📊 Benchmark Results ({n_runs} runs):")
+    print(f"\n Benchmark Results ({n_runs} runs):")
     print(f"   Avg latency : {result['avg_ms']} ms")
     print(f"   Min latency : {result['min_ms']} ms")
     print(f"   Max latency : {result['max_ms']} ms")
@@ -319,13 +319,13 @@ def compare_predictions(model, X_test, y_test, class_names=CLASS_NAMES,
             spine.set_edgecolor(color)
             spine.set_linewidth(2.5)
 
-    plt.suptitle("🔬 Ground Truth vs Model Predictions",
+    plt.suptitle(" Ground Truth vs Model Predictions",
                  fontsize=14, fontweight="bold")
     plt.tight_layout()
 
     if save_path:
         plt.savefig(save_path, bbox_inches="tight", dpi=150)
-        print(f"✅ Saved: {save_path}")
+        print(f" Saved: {save_path}")
     plt.show()
 
 
@@ -336,7 +336,7 @@ def generate_html_report(log_csv="inspection_log.csv",
     Generates a styled HTML inspection report from the CSV log.
     """
     if not os.path.exists(log_csv):
-        print(f"❌ Log not found: {log_csv}")
+        print(f" Log not found: {log_csv}")
         return
 
     df = pd.read_csv(log_csv)
@@ -382,7 +382,7 @@ def generate_html_report(log_csv="inspection_log.csv",
 </style>
 </head>
 <body>
-<h1>🏭 Manufacturing Defect Inspection Report</h1>
+<h1> Manufacturing Defect Inspection Report</h1>
 <p>Generated: {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}</p>
 
 <div class="kpis">
@@ -411,7 +411,7 @@ def generate_html_report(log_csv="inspection_log.csv",
     with open(output_html, "w") as f:
         f.write(html)
 
-    print(f"✅ HTML report saved: {output_html}")
+    print(f" HTML report saved: {output_html}")
     return output_html
 
 
