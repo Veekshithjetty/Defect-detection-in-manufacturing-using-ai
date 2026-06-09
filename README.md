@@ -52,33 +52,7 @@ defect-detection/
 
 ---
 
-##  Installation
 
-```bash
-# 1. Clone the repository
-git clone https://github.com/yourusername/defect-detection-ai.git
-cd defect-detection-ai
-
-# 2. Create virtual environment
-python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
-
-# 3. Install dependencies
-pip install -r requirements.txt
-
-# 4. Download dataset
-pip install kaggle
-kaggle datasets download -d fantacher/neu-metal-surface-defects-data
-unzip neu-metal-surface-defects-data.zip -d data/
-
-# 5. Run Jupyter Notebook
-jupyter notebook defect_detection.ipynb
-
-# 6. OR run Streamlit app (after training model)
-streamlit run streamlit_app.py
-```
-
----
 
 ##  Dataset
 
@@ -94,15 +68,6 @@ streamlit run streamlit_app.py
 | Sc | Scratches | 200 |
 
 Total: **1,200 images** | Split: **70/15/15** train/val/test
-
----
-
-##  Results
-
-| Model | Test Accuracy | F1 Score | Inference Time |
-|-------|-------------|---------|----------------|
-| Custom CNN | ~83% | ~0.82 | ~15ms |
-| MobileNetV2 (fine-tuned) | **>95%** | **>0.95** | ~20ms |
 
 ---
 
