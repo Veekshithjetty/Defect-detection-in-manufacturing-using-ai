@@ -7,7 +7,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
 > **AI-powered computer vision system for real-time manufacturing quality inspection.**  
-> Classifies 6 types of metal surface defects with >95% accuracy using MobileNetV2 Transfer Learning.
+> Classifies 6 types of metal surface defects using MobileNetV2 Transfer Learning.
 
 ---
 
@@ -15,7 +15,7 @@
 
 Manual visual inspection in manufacturing is slow, inconsistent, and expensive. This project builds an end-to-end AI defect detection pipeline that:
 - Classifies 6 steel surface defect types from product images
-- Provides real-time inspection via webcam with OpenCV
+- Provides defect inspection through an interactive Streamlit application.
 - Logs every prediction with timestamp, class, confidence, and severity
 - Offers an interactive Streamlit dashboard for production monitoring
 
@@ -26,7 +26,6 @@ Manual visual inspection in manufacturing is slow, inconsistent, and expensive. 
 | Feature | Details |
 |---------|--------|
 |  Dual Model Architecture | Custom CNN + MobileNetV2 Fine-Tuned |
-|  Real-Time Inspection | OpenCV webcam integration @ 30+ FPS |
 |  Severity Analysis | HIGH / MEDIUM / LOW confidence thresholds |
 |  Audit Logging | Automatic CSV logging of all predictions |
 |  Analytics Dashboard | Plotly interactive charts |
@@ -101,8 +100,8 @@ Total: **1,200 images** | Split: **70/15/15** train/val/test
 
 | Model | Test Accuracy | F1 Score | Inference Time |
 |-------|-------------|---------|----------------|
-| Custom CNN | ~83% | ~0.82 | ~15ms |
-| MobileNetV2 (fine-tuned) | **>95%** | **>0.95** | ~20ms |
+| Custom CNN | ~83% | ~0.82 |
+| MobileNetV2 (fine-tuned) | **~95%** | **~0.95** |
 
 ---
 
@@ -115,8 +114,3 @@ Total: **1,200 images** | Split: **70/15/15** train/val/test
 - **Deployment**: Streamlit
 
 ---
-
-
-##  License
-
-This project is licensed under the MIT License — see [LICENSE](LICENSE) for details.
